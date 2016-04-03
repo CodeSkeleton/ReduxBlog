@@ -5,7 +5,7 @@ import App from './components/app';
 import PostsIndex from './components/posts-index';
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={PostsIndex} />
-  </Route>
+    <Route path="/" component={App}>
+        <IndexRoute component={PostsIndex}/>
+    </Route>
 );
