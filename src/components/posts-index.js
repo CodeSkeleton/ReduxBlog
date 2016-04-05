@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index'
 
 import { Link } from 'react-router';
+import { Button } from 'react-toolbox/lib/button'
 
 class PostsIndex extends Component {
 
@@ -14,8 +15,10 @@ class PostsIndex extends Component {
         return this.props.posts.map((post) => {
             return (
                 <li className="list-group-item" key={post.id}>
-                    <span className="pull-xs-right">{post.categories}</span>
-                    <strong>{post.title}</strong>
+                    <Link to={"posts/" + post.id}>
+                        <span className="pull-xs-right">{post.categories}</span>
+                        <strong>{post.title}</strong>
+                    </Link>
                 </li>
             );
         })
@@ -24,6 +27,7 @@ class PostsIndex extends Component {
     render() {
         return (
             <div>
+                <Button raised primary label='logout' />
                 <div className="text-xs-right">
                     <Link to="/posts/new" className="btn btn-primary">Add a Post</Link>
                 </div>

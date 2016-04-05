@@ -1,3 +1,5 @@
+import '../../style/core.scss'
+
 import React from 'react';
 import { Component } from 'react';
 

@@ -3,6 +3,8 @@ import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index'
 import { Link } from 'react-router';
 
+import Input from 'react-toolbox/lib/input';
+
 class PostsNew extends Component {
     static contextTypes = {
         router: PropTypes.object
@@ -17,13 +19,11 @@ class PostsNew extends Component {
 
     render() {
         let {fields: { title, categories, content }, handleSubmit } = this.props;
-
         return(
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <h3>Create A New Post</h3>
                 <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-                    <label>Title</label>
-                    <input type="text" className="form-control" {...title} />
+                    <Input type='text' label="Title" {...title} />
                     <div className="text-help">
                         {title.touched ? title.error : ''}
                     </div>
@@ -56,7 +56,7 @@ function validate(values) {
     let errors = {};
 
     if (!values.title) {
-        errors.title = 'Enter a username';
+        errors.title = 'Enter a title';
     }
 
     if (!values.categories) {
